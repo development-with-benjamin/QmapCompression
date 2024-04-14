@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import random
+import os
 from PIL import Image, ImageFile, ImageFilter
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
@@ -14,7 +15,7 @@ from torch.distributions.multivariate_normal import MultivariateNormal
 class QualityMapDataset(Dataset):
     def __init__(self, path, cropsize=256, mode='train', level_range=(0, 100), level=0, p=0.2):
         df = pd.read_csv(path)
-        self.paths = df['path'].tolist()
+        self.paths = [make_path_absolute(path) for path in df['path'].tolist()]
         self.map_paths = df['seg_path'].tolist() if 'seg_path' in df else None
         self.cropsize = cropsize
         self.mode = mode
@@ -193,3 +194,9 @@ def get_test_dataloader_compressai(config):
                                  num_workers=2)
 
     return test_dataloader
+
+def make_path_absolute(path: str) -> str:
+    base_path = os.path.dirname(__file__)
+    if len(base_path) < len(path) and base_path == path[:len(base_path)]:
+        return path
+    return base_path + path[path.find('/'):]
