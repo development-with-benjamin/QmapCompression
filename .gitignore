@@ -2,3 +2,4 @@ compressai
 __pycache__
 .idea
 *.pt
+.vscode
