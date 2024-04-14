@@ -145,8 +145,8 @@ def save_checkpoint(filename, itr, model, optimizer, aux_optimizer, scaler=None)
     torch.save(snapshot, filename)
 
 
-def load_checkpoint(path, model, optimizer=None, aux_optimizer=None, scaler=None, only_net=False):
-    snapshot = torch.load(path)
+def load_checkpoint(path, model, device, optimizer=None, aux_optimizer=None, scaler=None, only_net=False):
+    snapshot = torch.load(path, map_location=device)
     itr = snapshot['itr']
     print(f'Loaded from {itr} iterations')
     model.load_state_dict(snapshot['model'])
@@ -158,6 +158,7 @@ def load_checkpoint(path, model, optimizer=None, aux_optimizer=None, scaler=None
         if scaler is not None and 'scaler' in snapshot:
             scaler.load_state_dict(snapshot['scaler'])
 
+    # del snapshot
     return itr, model
 
 
