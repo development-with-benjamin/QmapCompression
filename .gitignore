@@ -3,3 +3,6 @@ __pycache__
 .idea
 *.pt
 .vscode
+data
+images
+results/pretrained_dist/snapshots/*
