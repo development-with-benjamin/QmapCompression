@@ -1,6 +1,7 @@
 import argparse
 import sys
 import os
+import time
 
 import torch
 
@@ -34,6 +35,7 @@ def test(test_dataloaders, model, criterion, metric):
 
     with torch.no_grad():
         for i, test_dataloader in enumerate(test_dataloaders):
+            loop_start = time.time_ns()
             loss_avg = AverageMeter()
             aux_loss_avg = AverageMeter()
             bpp_avg = AverageMeter()
@@ -43,7 +45,7 @@ def test(test_dataloaders, model, criterion, metric):
             enc_time_avg = AverageMeter()
             dec_time_avg = AverageMeter()
 
-            for x, qmap in test_dataloader:
+            for itr, (x, qmap) in enumerate(test_dataloader):
                 x = x.to(device)
                 qmap = qmap.to(device)
                 lmbdamap = quality2lambda(qmap)
@@ -64,8 +66,9 @@ def test(test_dataloaders, model, criterion, metric):
                 ms_ssim_avg.update(ms_ssim.item())
                 enc_time_avg.update(enc_time)
                 dec_time_avg.update(dec_time)
+                
 
-            level = i - 1
+            level = i + 1
             print(
                 f'[ Test{level:>2} ]'
                 f' Total: {loss_avg.avg:.4f} |'
@@ -77,9 +80,11 @@ def test(test_dataloaders, model, criterion, metric):
                 f' Enc Time: {enc_time_avg.avg:.4f}s |'
                 f' Dec Time: {dec_time_avg.avg:.4f}s'
             )
-
+            # print(f"Allocated {device} memory: {torch.cuda.memory_allocated(device)/1_000_000:.2f} MB")
+            print(f"Loop Iteration {level} done")
+            print(f"Time spent: {(time.time_ns() - loop_start) / 10e9:.2f}s")
             # uniform qmap
-            if level != -1:
+            if level != 1:
                 loss_all_avg.update(loss_avg.avg)
             enc_time_all_avg.update(enc_time_avg.avg)
             dec_time_all_avg.update(dec_time_avg.avg)
@@ -113,7 +118,7 @@ def main(argv):
 
     model = SpatiallyAdaptiveCompression(N=config['N'], M=config['M'], sft_ks=config['sft_ks'], prior_nc=64)
     model = model.to(device)
-    itr, model = load_checkpoint(args.snapshot, model, only_net=True)
+    itr, model = load_checkpoint(args.snapshot, model, device=device, only_net=True)
     model.eval()
     model.update()
     test(test_dataloaders, model, criterion, metric)
