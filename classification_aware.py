@@ -216,7 +216,7 @@ if __name__ == '__main__':
     tmp_path = '/tmp/tmp.comp'
     model = SpatiallyAdaptiveCompression(N=config['N'], M=config['M'], sft_ks=config['sft_ks'], prior_nc=64)
     model = model.to(device)
-    itr, model = load_checkpoint(args.snapshot, model, only_net=True)
+    itr, model = load_checkpoint(args.snapshot, model, device=device, only_net=True)
     model.eval()
     model.update()
 
