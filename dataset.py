@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import random
 import os
+from pathlib import Path
 from PIL import Image, ImageFile, ImageFilter
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
@@ -71,7 +72,7 @@ class QualityMapDataset(Dataset):
             img = img.crop(region)
             segmap = segmap.crop(region)
 
-        # horizontal flip
+        # horizontal flip if training
         if random.random() < 0.5 and self.mode == 'train':
             img = hflip(img)
             segmap = hflip(segmap)
@@ -117,6 +118,7 @@ class QualityMapDataset(Dataset):
                     kernel = torch.exp(p).numpy()
                     qmap += kernel
                 qmap *= 100 / qmap.max() * (0.5 * random.random() + 0.5)
+        # if testing
         else:
             uniques.sort()
             if self.level == -100:
