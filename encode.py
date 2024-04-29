@@ -27,7 +27,7 @@ def encode_image(image_paths, compression_level: int, output_dir: str) -> None:
         compression_path = output_dir + '/' + str(Path(path).stem) + '.cmp'
         image = image.to(device)
         qmap = qmap.to(device)
-        out_net = model(image, qmap)
+        _ = model(image, qmap)
         _, _, _ = _encode(model, image, compression_path, qmap)
 
 if __name__ == '__main__':
@@ -50,8 +50,8 @@ if __name__ == '__main__':
     if args.dir and os.path.isdir(args.dir):
         directory, _, files = next(os.walk(args.dir))
         for file in files:
-            if any(e in file for e in extensions):
-                image_files.append(directory + '/' + file)
+            image_files += [directory + '/' + file for e in extensions if e in file]
+
     image_files = [str(Path(subpath).absolute()) + '\n' for subpath in image_files]
     image_files = list(set(image_files))
 
@@ -59,5 +59,8 @@ if __name__ == '__main__':
     with open(image_paths, mode='w') as csv:
         csv.write("path\n")
         csv.writelines(image_files)
-
-    encode_image(image_paths, args.compression, args.out)
+    
+    for level in range(101):
+        output_dir = args.out + '/level+' + str(level).zfill(3) 
+        encode_image(image_paths, level, output_dir)
+        print(f"Level {str(level).zfill(3)} finished.")
