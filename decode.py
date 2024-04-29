@@ -35,9 +35,10 @@ if __name__ == '__main__':
     model.eval().update()
     device = next(model.parameters()).device
 
-    for filepath in compressed_files:
-        filename = str(Path(filepath).stem)
-        reconstructed_image, _ = _decode(model, filepath)
-        reconstructed_image = reconstructed_image.view(reconstructed_image.shape[1:])
-        reconstructed_image = to_pil_image(reconstructed_image)
-        reconstructed_image.save(args.out + '/' + filename + '.png')
+    with torch.no_grad():
+        for filepath in compressed_files:
+            filename = str(Path(filepath).stem)
+            reconstructed_image, _ = _decode(model, filepath)
+            reconstructed_image = reconstructed_image.view(reconstructed_image.shape[1:])
+            reconstructed_image = to_pil_image(reconstructed_image)
+            reconstructed_image.save(args.out + '/' + filename + '.png')
