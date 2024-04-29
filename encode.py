@@ -60,7 +60,8 @@ if __name__ == '__main__':
         csv.write("path\n")
         csv.writelines(image_files)
     
-    for level in range(101):
-        output_dir = args.out + '/level+' + str(level).zfill(3) 
-        encode_image(image_paths, level, output_dir)
-        print(f"Level {str(level).zfill(3)} finished.")
+    with torch.no_grad():
+        for level in range(90, 101):
+            output_dir = args.out + '/level+' + str(level).zfill(3) 
+            encode_image(image_paths, level, output_dir)
+            print(f"Level {str(level).zfill(3)} finished.")
