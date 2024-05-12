@@ -292,6 +292,7 @@ def _encode(model, x: torch.Tensor, output: str, qmap=None, metric='mse', coder=
     _, _, h, w = x.shape
     p = 64
     x = pad(x, p)
+    qmap = pad(qmap, p)
 
     with torch.no_grad():
         if qmap is None:
