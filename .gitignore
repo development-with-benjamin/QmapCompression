@@ -8,3 +8,6 @@ images
 compression
 reconstructed
 results/pretrained_dist/snapshots/*
+*.txt
+*.csv
+*.ipynb
