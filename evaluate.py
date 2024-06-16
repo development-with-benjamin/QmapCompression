@@ -25,10 +25,13 @@ def psnr(original: Image, reconstructed: Image):
 def encode_decode_images(model: SpatiallyAdaptiveCompression, image_paths: str, compression_level: int, compression_dir: str, reconstruct_dir: str) -> dict:
     qmap = QualityMapDataset(image_paths, mode='test', level=compression_level)
     image_paths = qmap.paths
+    n_images = len(image_paths)
+    itr = 0
     qmap_dataloader = DataLoader(qmap, batch_size=1, shuffle=False, num_workers=3, pin_memory=True)
     
     data = {'image_path': [], 'compressed_path': [], 'reconsturcted_path': [], 'bpp': [], 'psnr': [], 'compression_level': []}
     for (image, qmap), path in zip(qmap_dataloader, image_paths):
+        itr += 1
         compression_path = compression_dir + str(Path(path).stem) + '.cmp'
         reconstruct_path = reconstruct_dir + str(Path(path).stem) + '.png'
 
@@ -51,7 +54,8 @@ def encode_decode_images(model: SpatiallyAdaptiveCompression, image_paths: str, 
         data['compressed_path'].append(compression_path)
         data['reconsturcted_path'].append(reconstruct_path)
         data['compression_level'].append(compression_level)
-        
+        print(itr, "/", n_images, "level", level)
+
     return data
 
 
