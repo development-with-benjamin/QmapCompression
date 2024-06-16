@@ -32,6 +32,14 @@ def parse_args(argv):
 
     return args
 
+def check_for_nan_inf(tensor, name="tensor"):
+    if torch.isnan(tensor).any():
+        print(f"{name} contains NaNs!")
+        return True
+    if torch.isinf(tensor).any():
+        print(f"{name} contains Infs!")
+        return True
+    return False
 
 # T in the paper
 def quality2lambda(qmap):
@@ -87,7 +95,7 @@ def train(args, config, base_dir, snapshot_dir, output_dir, log_dir):
     aux_optimizer = optim.Adam(model.aux_parameters(), lr=config['lr_aux'])
 
     if args.resume:
-        itr, model = load_checkpoint(args.resume, model, optimizer, aux_optimizer)
+        itr, model = load_checkpoint(args.resume, model, device, optimizer, aux_optimizer)
         logger.load_itr(itr)
 
     if config['set_lr']:
@@ -99,9 +107,14 @@ def train(args, config, base_dir, snapshot_dir, output_dir, log_dir):
     model.train()
     loss_best = 1e10
     while logger.itr < config['max_itr']:
-        for x, qmap in train_dataloader:
-            optimizer.zero_grad()
-            aux_optimizer.zero_grad()
+        skipped_batches = 0
+        used_batches = 0
+        for batch_nr, (x, qmap) in enumerate(train_dataloader):
+            # Call zero_grad to clear gradients
+            # remove if block if enough memory is available
+            if batch_nr % 2 == 0: # increase batchsize by factor 2 virtually
+                optimizer.zero_grad()
+                aux_optimizer.zero_grad()
 
             x = x.to(device)
             qmap = qmap.to(device)
@@ -116,38 +129,45 @@ def train(args, config, base_dir, snapshot_dir, output_dir, log_dir):
 
             # for stability
             if out_criterion['loss'].isnan().any() or out_criterion['loss'].isinf().any() or out_criterion['loss'] > 10000:
+                skipped_batches += 1
                 continue
 
             if config['clip_max_norm'] > 0:
                 torch.nn.utils.clip_grad_norm_(model.parameters(), config['clip_max_norm'])
-            optimizer.step()
-            aux_optimizer.step()  # update quantiles of entropy bottleneck modules
+            
+            # remove if block if enough memory is available
+            if batch_nr % 2 == 1: # increase batchsize by factor 2 virtually
+                used_batches += 1
+                optimizer.step()
+                aux_optimizer.step()  # update quantiles of entropy bottleneck modules
 
-            # logging
-            logger.update(out_criterion, aux_loss)
-            if logger.itr % config['log_itr'] == 0:
-                logger.print()
-                logger.write()
-                logger.init()
+        # logging
+        print("epoch:", logger.itr, "of", config["max_itr"])
+        print("used batches:", used_batches, "skipped batches:", skipped_batches)
+        logger.update(out_criterion, aux_loss)
+        if logger.itr % config['log_itr'] == 0:
+            logger.print()
+            logger.write()
+            logger.init()
 
-            # test and save model snapshot
-            if logger.itr % config['test_itr'] == 0 or logger.itr % config['snapshot_save_itr'] == 0:
-                model.update()
-                loss, bpp_loss, mse_loss = test(logger, test_dataloaders, model, criterion, metric)
-                if loss < loss_best:
-                    print('Best!')
-                    save_checkpoint(os.path.join(snapshot_dir, 'best.pt'), logger.itr, model, optimizer, aux_optimizer)
-                    loss_best = loss
-                if logger.itr % config['snapshot_save_itr'] == 0:
-                    save_checkpoint(os.path.join(snapshot_dir, f'{logger.itr:07}_{bpp_loss:.4f}_{mse_loss:.8f}.pt'),
-                                    logger.itr, model, optimizer, aux_optimizer)
+        # test and save model snapshot
+        if logger.itr % config['test_itr'] == 0 or logger.itr % config['snapshot_save_itr'] == 0:
+            model.update()
+            loss, bpp_loss, mse_loss = test(logger, test_dataloaders, model, criterion, metric)
+            if loss < loss_best:
+                print('Best!')
+                save_checkpoint(os.path.join(snapshot_dir, 'best.pt'), logger.itr, model, optimizer, aux_optimizer)
+                loss_best = loss
+            if logger.itr % config['snapshot_save_itr'] == 0:
+                save_checkpoint(os.path.join(snapshot_dir, f'{logger.itr:07}_{bpp_loss:.4f}_{mse_loss:.8f}.pt'),
+                                logger.itr, model, optimizer, aux_optimizer)
 
-            # lr scheduling
-            if logger.itr % config['lr_shedule_step'] == 0:
-                lr_prior = optimizer.param_groups[0]['lr']
-                for g in optimizer.param_groups:
-                    g['lr'] *= config['lr_shedule_scale']
-                print(f'[lr scheduling] {lr_prior} -> {optimizer.param_groups[0]["lr"]}')
+        # lr scheduling
+        if logger.itr % config['lr_shedule_step'] == 0:
+            lr_prior = optimizer.param_groups[0]['lr']
+            for g in optimizer.param_groups:
+                g['lr'] *= config['lr_shedule_scale']
+            print(f'[lr scheduling] {lr_prior} -> {optimizer.param_groups[0]["lr"]}')
 
 
 def main(argv):
@@ -159,7 +179,7 @@ def main(argv):
         np.random.seed(seed)
         torch.manual_seed(seed)
         torch.cuda.manual_seed(seed)
-        torch.cuda.manual_seed_all(seed)  # if use multi-GPU
+        # torch.cuda.manual_seed_all(seed)  # if use multi-GPU
         # torch.backends.cudnn.deterministic = True  # slow
         # torch.backends.cudnn.benchmark = False
 
