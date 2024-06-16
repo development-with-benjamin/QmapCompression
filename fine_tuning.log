@@ -1,0 +1,1040 @@
+[PID] 580228
+[config] ./configs/config.yaml
+======================= DIV2K_train =======================
+  snapshot_save_itr:  25
+  log_itr:  10
+  test_itr:  10000
+  max_itr:  2000000
+ *lr:  0.0001
+  lr_aux:  0.001
+  lr_shedule_step:  100
+  lr_shedule_scale:  0.1
+  clip_max_norm:  1
+ *set_lr:  1e-05
+  N:  192
+  M:  192
+  sft_ks:  3
+  trainset:  ./data/DIV2K_train_HR.csv
+  testset:  ./data/kodak.csv
+  batchsize:  4
+  batchsize_test:  1
+  patchsize:  256
+  worker_num:  3
+ *p:  0.2
+===========================================================
+
+[trainset] 800 images
+[testset] 24 images for quality -1.0
+[testset] 24 images for quality 0.0
+[testset] 24 images for quality 0.1
+[testset] 24 images for quality 0.2
+[testset] 24 images for quality 0.3
+[testset] 24 images for quality 0.4
+[testset] 24 images for quality 0.5
+[testset] 24 images for quality 0.6
+[testset] 24 images for quality 0.7
+[testset] 24 images for quality 0.8
+[testset] 24 images for quality 0.9
+[testset] 24 images for quality 1.0
+Loaded from 1980000 iterations
+[set lr] 0.0001 -> 1e-05
+epoch: 1980000 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980001 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980002 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980003 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980004 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980005 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980006 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980007 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980008 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980009 of 2000000
+used batches: 100 skipped batches: 0
+[1980010] Total: 0.7666 | BPP: 0.4510 | MSE: 0.000005 | Aux: 220
+epoch: 1980010 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980011 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980012 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980013 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980014 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980015 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980016 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980017 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980018 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980019 of 2000000
+used batches: 100 skipped batches: 0
+[1980020] Total: 0.7157 | BPP: 0.4191 | MSE: 0.000005 | Aux: 159
+epoch: 1980020 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980021 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980022 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980023 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980024 of 2000000
+used batches: 100 skipped batches: 0
+[ Test-1 ] Total: 0.5092 | BPP: 0.2352 | PSNR: 29.5220 | MS-SSIM: 0.9361 | Aux: 119
+[ Test 0 ] Total: 0.2317 | BPP: 0.0887 | PSNR: 27.0863 | MS-SSIM: 0.8973 | Aux: 119
+[ Test 1 ] Total: 0.2971 | BPP: 0.1167 | PSNR: 27.9392 | MS-SSIM: 0.9159 | Aux: 119
+[ Test 2 ] Total: 0.3776 | BPP: 0.1541 | PSNR: 28.8777 | MS-SSIM: 0.9325 | Aux: 119
+[ Test 3 ] Total: 0.4754 | BPP: 0.2046 | PSNR: 29.9148 | MS-SSIM: 0.9466 | Aux: 119
+[ Test 4 ] Total: 0.5947 | BPP: 0.2708 | PSNR: 30.9984 | MS-SSIM: 0.9585 | Aux: 119
+[ Test 5 ] Total: 0.7368 | BPP: 0.3554 | PSNR: 32.1438 | MS-SSIM: 0.9680 | Aux: 119
+[ Test 6 ] Total: 0.9049 | BPP: 0.4573 | PSNR: 33.3178 | MS-SSIM: 0.9755 | Aux: 119
+[ Test 7 ] Total: 1.1044 | BPP: 0.5823 | PSNR: 34.5288 | MS-SSIM: 0.9814 | Aux: 119
+[ Test 8 ] Total: 1.3449 | BPP: 0.7168 | PSNR: 35.6239 | MS-SSIM: 0.9855 | Aux: 119
+[ Test 9 ] Total: 1.6385 | BPP: 0.8694 | PSNR: 36.6645 | MS-SSIM: 0.9887 | Aux: 119
+[ Test10 ] Total: 2.0115 | BPP: 1.0258 | PSNR: 37.5272 | MS-SSIM: 0.9909 | Aux: 119
+[ Test ] Total mean: 0.8834
+Best!
+epoch: 1980025 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980026 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980027 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980028 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980029 of 2000000
+used batches: 100 skipped batches: 0
+[1980030] Total: 0.9208 | BPP: 0.5026 | MSE: 0.000006 | Aux: 118
+epoch: 1980030 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980031 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980032 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980033 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980034 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980035 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980036 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980037 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980038 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980039 of 2000000
+used batches: 100 skipped batches: 0
+[1980040] Total: 0.8624 | BPP: 0.4834 | MSE: 0.000006 | Aux: 111
+epoch: 1980040 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980041 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980042 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980043 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980044 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980045 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980046 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980047 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980048 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980049 of 2000000
+used batches: 100 skipped batches: 0
+[1980050] Total: 0.8471 | BPP: 0.4720 | MSE: 0.000006 | Aux: 99
+[ Test-1 ] Total: 0.5082 | BPP: 0.2366 | PSNR: 29.5719 | MS-SSIM: 0.9365 | Aux: 91
+[ Test 0 ] Total: 0.2306 | BPP: 0.0897 | PSNR: 27.1561 | MS-SSIM: 0.8983 | Aux: 91
+[ Test 1 ] Total: 0.2955 | BPP: 0.1177 | PSNR: 28.0153 | MS-SSIM: 0.9166 | Aux: 91
+[ Test 2 ] Total: 0.3758 | BPP: 0.1552 | PSNR: 28.9442 | MS-SSIM: 0.9329 | Aux: 91
+[ Test 3 ] Total: 0.4743 | BPP: 0.2061 | PSNR: 29.9618 | MS-SSIM: 0.9469 | Aux: 91
+[ Test 4 ] Total: 0.5931 | BPP: 0.2724 | PSNR: 31.0428 | MS-SSIM: 0.9588 | Aux: 91
+[ Test 5 ] Total: 0.7354 | BPP: 0.3575 | PSNR: 32.1845 | MS-SSIM: 0.9682 | Aux: 91
+[ Test 6 ] Total: 0.9032 | BPP: 0.4596 | PSNR: 33.3575 | MS-SSIM: 0.9757 | Aux: 91
+[ Test 7 ] Total: 1.1027 | BPP: 0.5847 | PSNR: 34.5627 | MS-SSIM: 0.9815 | Aux: 91
+[ Test 8 ] Total: 1.3425 | BPP: 0.7194 | PSNR: 35.6567 | MS-SSIM: 0.9856 | Aux: 91
+[ Test 9 ] Total: 1.6363 | BPP: 0.8725 | PSNR: 36.6932 | MS-SSIM: 0.9887 | Aux: 91
+[ Test10 ] Total: 2.0089 | BPP: 1.0286 | PSNR: 37.5484 | MS-SSIM: 0.9909 | Aux: 91
+[ Test ] Total mean: 0.8817
+Best!
+epoch: 1980050 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980051 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980052 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980053 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980054 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980055 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980056 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980057 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980058 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980059 of 2000000
+used batches: 100 skipped batches: 0
+[1980060] Total: 0.9241 | BPP: 0.5260 | MSE: 0.000006 | Aux: 96
+epoch: 1980060 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980061 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980062 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980063 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980064 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980065 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980066 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980067 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980068 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980069 of 2000000
+used batches: 100 skipped batches: 0
+[1980070] Total: 0.6946 | BPP: 0.4090 | MSE: 0.000004 | Aux: 95
+epoch: 1980070 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980071 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980072 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980073 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980074 of 2000000
+used batches: 100 skipped batches: 0
+[ Test-1 ] Total: 0.5089 | BPP: 0.2359 | PSNR: 29.5300 | MS-SSIM: 0.9360 | Aux: 95
+[ Test 0 ] Total: 0.2314 | BPP: 0.0887 | PSNR: 27.0979 | MS-SSIM: 0.8972 | Aux: 95
+[ Test 1 ] Total: 0.2968 | BPP: 0.1169 | PSNR: 27.9516 | MS-SSIM: 0.9160 | Aux: 95
+[ Test 2 ] Total: 0.3768 | BPP: 0.1545 | PSNR: 28.9054 | MS-SSIM: 0.9326 | Aux: 95
+[ Test 3 ] Total: 0.4748 | BPP: 0.2055 | PSNR: 29.9396 | MS-SSIM: 0.9468 | Aux: 95
+[ Test 4 ] Total: 0.5935 | BPP: 0.2717 | PSNR: 31.0280 | MS-SSIM: 0.9587 | Aux: 95
+[ Test 5 ] Total: 0.7360 | BPP: 0.3572 | PSNR: 32.1745 | MS-SSIM: 0.9683 | Aux: 95
+[ Test 6 ] Total: 0.9038 | BPP: 0.4598 | PSNR: 33.3550 | MS-SSIM: 0.9758 | Aux: 95
+[ Test 7 ] Total: 1.1033 | BPP: 0.5839 | PSNR: 34.5506 | MS-SSIM: 0.9816 | Aux: 95
+[ Test 8 ] Total: 1.3428 | BPP: 0.7174 | PSNR: 35.6421 | MS-SSIM: 0.9856 | Aux: 95
+[ Test 9 ] Total: 1.6364 | BPP: 0.8695 | PSNR: 36.6738 | MS-SSIM: 0.9888 | Aux: 95
+[ Test10 ] Total: 2.0077 | BPP: 1.0229 | PSNR: 37.5253 | MS-SSIM: 0.9909 | Aux: 95
+[ Test ] Total mean: 0.8821
+epoch: 1980075 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980076 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980077 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980078 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980079 of 2000000
+used batches: 100 skipped batches: 0
+[1980080] Total: 1.0144 | BPP: 0.5392 | MSE: 0.000007 | Aux: 92
+epoch: 1980080 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980081 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980082 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980083 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980084 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980085 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980086 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980087 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980088 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980089 of 2000000
+used batches: 100 skipped batches: 0
+[1980090] Total: 0.9156 | BPP: 0.5084 | MSE: 0.000006 | Aux: 91
+epoch: 1980090 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980091 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980092 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980093 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980094 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980095 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980096 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980097 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980098 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980099 of 2000000
+used batches: 100 skipped batches: 0
+[1980100] Total: 0.6990 | BPP: 0.3837 | MSE: 0.000005 | Aux: 92
+[ Test-1 ] Total: 0.5089 | BPP: 0.2350 | PSNR: 29.5229 | MS-SSIM: 0.9358 | Aux: 93
+[ Test 0 ] Total: 0.2316 | BPP: 0.0884 | PSNR: 27.0859 | MS-SSIM: 0.8966 | Aux: 93
+[ Test 1 ] Total: 0.2963 | BPP: 0.1164 | PSNR: 27.9622 | MS-SSIM: 0.9155 | Aux: 93
+[ Test 2 ] Total: 0.3769 | BPP: 0.1537 | PSNR: 28.8917 | MS-SSIM: 0.9321 | Aux: 93
+[ Test 3 ] Total: 0.4748 | BPP: 0.2043 | PSNR: 29.9220 | MS-SSIM: 0.9464 | Aux: 93
+[ Test 4 ] Total: 0.5938 | BPP: 0.2706 | PSNR: 31.0097 | MS-SSIM: 0.9585 | Aux: 93
+[ Test 5 ] Total: 0.7363 | BPP: 0.3546 | PSNR: 32.1393 | MS-SSIM: 0.9679 | Aux: 93
+[ Test 6 ] Total: 0.9039 | BPP: 0.4570 | PSNR: 33.3240 | MS-SSIM: 0.9755 | Aux: 93
+[ Test 7 ] Total: 1.1032 | BPP: 0.5825 | PSNR: 34.5391 | MS-SSIM: 0.9815 | Aux: 93
+[ Test 8 ] Total: 1.3435 | BPP: 0.7176 | PSNR: 35.6345 | MS-SSIM: 0.9856 | Aux: 93
+[ Test 9 ] Total: 1.6364 | BPP: 0.8711 | PSNR: 36.6811 | MS-SSIM: 0.9887 | Aux: 93
+[ Test10 ] Total: 2.0078 | BPP: 1.0262 | PSNR: 37.5372 | MS-SSIM: 0.9909 | Aux: 93
+[ Test ] Total mean: 0.8822
+[lr scheduling] 1e-05 -> 1.0000000000000002e-06
+epoch: 1980100 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980101 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980102 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980103 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980104 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980105 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980106 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980107 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980108 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980109 of 2000000
+used batches: 100 skipped batches: 0
+[1980110] Total: 0.6490 | BPP: 0.3837 | MSE: 0.000004 | Aux: 111
+epoch: 1980110 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980111 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980112 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980113 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980114 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980115 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980116 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980117 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980118 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980119 of 2000000
+used batches: 100 skipped batches: 0
+[1980120] Total: 0.8168 | BPP: 0.4676 | MSE: 0.000005 | Aux: 139
+epoch: 1980120 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980121 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980122 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980123 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980124 of 2000000
+used batches: 100 skipped batches: 0
+[ Test-1 ] Total: 0.5081 | BPP: 0.2357 | PSNR: 29.5418 | MS-SSIM: 0.9362 | Aux: 161
+[ Test 0 ] Total: 0.2310 | BPP: 0.0887 | PSNR: 27.1125 | MS-SSIM: 0.8975 | Aux: 161
+[ Test 1 ] Total: 0.2959 | BPP: 0.1169 | PSNR: 27.9799 | MS-SSIM: 0.9162 | Aux: 161
+[ Test 2 ] Total: 0.3764 | BPP: 0.1544 | PSNR: 28.9134 | MS-SSIM: 0.9326 | Aux: 161
+[ Test 3 ] Total: 0.4742 | BPP: 0.2052 | PSNR: 29.9480 | MS-SSIM: 0.9468 | Aux: 161
+[ Test 4 ] Total: 0.5931 | BPP: 0.2716 | PSNR: 31.0308 | MS-SSIM: 0.9587 | Aux: 161
+[ Test 5 ] Total: 0.7355 | BPP: 0.3561 | PSNR: 32.1660 | MS-SSIM: 0.9681 | Aux: 161
+[ Test 6 ] Total: 0.9029 | BPP: 0.4584 | PSNR: 33.3482 | MS-SSIM: 0.9757 | Aux: 161
+[ Test 7 ] Total: 1.1018 | BPP: 0.5832 | PSNR: 34.5572 | MS-SSIM: 0.9815 | Aux: 161
+[ Test 8 ] Total: 1.3406 | BPP: 0.7172 | PSNR: 35.6549 | MS-SSIM: 0.9856 | Aux: 161
+[ Test 9 ] Total: 1.6325 | BPP: 0.8702 | PSNR: 36.7008 | MS-SSIM: 0.9887 | Aux: 161
+[ Test10 ] Total: 2.0016 | BPP: 1.0257 | PSNR: 37.5657 | MS-SSIM: 0.9909 | Aux: 161
+[ Test ] Total mean: 0.8805
+Best!
+epoch: 1980125 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980126 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980127 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980128 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980129 of 2000000
+used batches: 100 skipped batches: 0
+[1980130] Total: 1.3118 | BPP: 0.6620 | MSE: 0.000010 | Aux: 156
+epoch: 1980130 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980131 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980132 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980133 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980134 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980135 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980136 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980137 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980138 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980139 of 2000000
+used batches: 100 skipped batches: 0
+[1980140] Total: 0.6879 | BPP: 0.3999 | MSE: 0.000004 | Aux: 159
+epoch: 1980140 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980141 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980142 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980143 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980144 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980145 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980146 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980147 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980148 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980149 of 2000000
+used batches: 100 skipped batches: 0
+[1980150] Total: 0.6381 | BPP: 0.3950 | MSE: 0.000004 | Aux: 165
+[ Test-1 ] Total: 0.5081 | BPP: 0.2354 | PSNR: 29.5347 | MS-SSIM: 0.9363 | Aux: 167
+[ Test 0 ] Total: 0.2310 | BPP: 0.0885 | PSNR: 27.1036 | MS-SSIM: 0.8975 | Aux: 167
+[ Test 1 ] Total: 0.2962 | BPP: 0.1167 | PSNR: 27.9670 | MS-SSIM: 0.9162 | Aux: 167
+[ Test 2 ] Total: 0.3765 | BPP: 0.1540 | PSNR: 28.9025 | MS-SSIM: 0.9326 | Aux: 167
+[ Test 3 ] Total: 0.4744 | BPP: 0.2048 | PSNR: 29.9374 | MS-SSIM: 0.9468 | Aux: 167
+[ Test 4 ] Total: 0.5932 | BPP: 0.2709 | PSNR: 31.0208 | MS-SSIM: 0.9587 | Aux: 167
+[ Test 5 ] Total: 0.7354 | BPP: 0.3556 | PSNR: 32.1609 | MS-SSIM: 0.9681 | Aux: 167
+[ Test 6 ] Total: 0.9029 | BPP: 0.4580 | PSNR: 33.3455 | MS-SSIM: 0.9757 | Aux: 167
+[ Test 7 ] Total: 1.1017 | BPP: 0.5834 | PSNR: 34.5578 | MS-SSIM: 0.9816 | Aux: 167
+[ Test 8 ] Total: 1.3406 | BPP: 0.7181 | PSNR: 35.6610 | MS-SSIM: 0.9856 | Aux: 167
+[ Test 9 ] Total: 1.6323 | BPP: 0.8712 | PSNR: 36.7071 | MS-SSIM: 0.9888 | Aux: 167
+[ Test10 ] Total: 2.0017 | BPP: 1.0266 | PSNR: 37.5700 | MS-SSIM: 0.9909 | Aux: 167
+[ Test ] Total mean: 0.8805
+epoch: 1980150 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980151 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980152 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980153 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980154 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980155 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980156 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980157 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980158 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980159 of 2000000
+used batches: 100 skipped batches: 0
+[1980160] Total: 0.7710 | BPP: 0.4485 | MSE: 0.000005 | Aux: 161
+epoch: 1980160 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980161 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980162 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980163 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980164 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980165 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980166 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980167 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980168 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980169 of 2000000
+used batches: 100 skipped batches: 0
+[1980170] Total: 0.8344 | BPP: 0.4950 | MSE: 0.000005 | Aux: 165
+epoch: 1980170 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980171 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980172 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980173 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980174 of 2000000
+used batches: 100 skipped batches: 0
+[ Test-1 ] Total: 0.5085 | BPP: 0.2349 | PSNR: 29.5155 | MS-SSIM: 0.9361 | Aux: 165
+[ Test 0 ] Total: 0.2314 | BPP: 0.0882 | PSNR: 27.0818 | MS-SSIM: 0.8973 | Aux: 165
+[ Test 1 ] Total: 0.2965 | BPP: 0.1163 | PSNR: 27.9490 | MS-SSIM: 0.9161 | Aux: 165
+[ Test 2 ] Total: 0.3770 | BPP: 0.1536 | PSNR: 28.8803 | MS-SSIM: 0.9324 | Aux: 165
+[ Test 3 ] Total: 0.4747 | BPP: 0.2042 | PSNR: 29.9187 | MS-SSIM: 0.9466 | Aux: 165
+[ Test 4 ] Total: 0.5935 | BPP: 0.2704 | PSNR: 31.0098 | MS-SSIM: 0.9586 | Aux: 165
+[ Test 5 ] Total: 0.7358 | BPP: 0.3551 | PSNR: 32.1502 | MS-SSIM: 0.9681 | Aux: 165
+[ Test 6 ] Total: 0.9034 | BPP: 0.4575 | PSNR: 33.3344 | MS-SSIM: 0.9756 | Aux: 165
+[ Test 7 ] Total: 1.1024 | BPP: 0.5826 | PSNR: 34.5452 | MS-SSIM: 0.9815 | Aux: 165
+[ Test 8 ] Total: 1.3415 | BPP: 0.7171 | PSNR: 35.6466 | MS-SSIM: 0.9856 | Aux: 165
+[ Test 9 ] Total: 1.6335 | BPP: 0.8700 | PSNR: 36.6923 | MS-SSIM: 0.9887 | Aux: 165
+[ Test10 ] Total: 2.0024 | BPP: 1.0254 | PSNR: 37.5600 | MS-SSIM: 0.9909 | Aux: 165
+[ Test ] Total mean: 0.8811
+epoch: 1980175 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980176 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980177 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980178 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980179 of 2000000
+used batches: 100 skipped batches: 0
+[1980180] Total: 0.9836 | BPP: 0.5439 | MSE: 0.000007 | Aux: 165
+epoch: 1980180 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980181 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980182 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980183 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980184 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980185 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980186 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980187 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980188 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980189 of 2000000
+used batches: 100 skipped batches: 0
+[1980190] Total: 0.8325 | BPP: 0.4722 | MSE: 0.000006 | Aux: 165
+epoch: 1980190 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980191 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980192 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980193 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980194 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980195 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980196 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980197 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980198 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980199 of 2000000
+used batches: 100 skipped batches: 0
+[1980200] Total: 0.8648 | BPP: 0.5112 | MSE: 0.000005 | Aux: 163
+[ Test-1 ] Total: 0.5083 | BPP: 0.2356 | PSNR: 29.5326 | MS-SSIM: 0.9364 | Aux: 167
+[ Test 0 ] Total: 0.2313 | BPP: 0.0886 | PSNR: 27.0989 | MS-SSIM: 0.8977 | Aux: 167
+[ Test 1 ] Total: 0.2962 | BPP: 0.1168 | PSNR: 27.9659 | MS-SSIM: 0.9163 | Aux: 167
+[ Test 2 ] Total: 0.3767 | BPP: 0.1542 | PSNR: 28.9009 | MS-SSIM: 0.9327 | Aux: 167
+[ Test 3 ] Total: 0.4745 | BPP: 0.2051 | PSNR: 29.9371 | MS-SSIM: 0.9469 | Aux: 167
+[ Test 4 ] Total: 0.5933 | BPP: 0.2714 | PSNR: 31.0249 | MS-SSIM: 0.9587 | Aux: 167
+[ Test 5 ] Total: 0.7356 | BPP: 0.3560 | PSNR: 32.1632 | MS-SSIM: 0.9682 | Aux: 167
+[ Test 6 ] Total: 0.9033 | BPP: 0.4581 | PSNR: 33.3404 | MS-SSIM: 0.9757 | Aux: 167
+[ Test 7 ] Total: 1.1022 | BPP: 0.5828 | PSNR: 34.5503 | MS-SSIM: 0.9815 | Aux: 167
+[ Test 8 ] Total: 1.3409 | BPP: 0.7170 | PSNR: 35.6504 | MS-SSIM: 0.9856 | Aux: 167
+[ Test 9 ] Total: 1.6328 | BPP: 0.8697 | PSNR: 36.6952 | MS-SSIM: 0.9888 | Aux: 167
+[ Test10 ] Total: 2.0024 | BPP: 1.0251 | PSNR: 37.5588 | MS-SSIM: 0.9909 | Aux: 167
+[ Test ] Total mean: 0.8808
+[lr scheduling] 1.0000000000000002e-06 -> 1.0000000000000002e-07
+epoch: 1980200 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980201 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980202 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980203 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980204 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980205 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980206 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980207 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980208 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980209 of 2000000
+used batches: 100 skipped batches: 0
+[1980210] Total: 0.7640 | BPP: 0.4365 | MSE: 0.000005 | Aux: 170
+epoch: 1980210 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980211 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980212 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980213 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980214 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980215 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980216 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980217 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980218 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980219 of 2000000
+used batches: 100 skipped batches: 0
+[1980220] Total: 0.7058 | BPP: 0.4216 | MSE: 0.000004 | Aux: 177
+epoch: 1980220 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980221 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980222 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980223 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980224 of 2000000
+used batches: 100 skipped batches: 0
+[ Test-1 ] Total: 0.5081 | BPP: 0.2354 | PSNR: 29.5336 | MS-SSIM: 0.9363 | Aux: 190
+[ Test 0 ] Total: 0.2312 | BPP: 0.0884 | PSNR: 27.0945 | MS-SSIM: 0.8974 | Aux: 190
+[ Test 1 ] Total: 0.2962 | BPP: 0.1166 | PSNR: 27.9618 | MS-SSIM: 0.9162 | Aux: 190
+[ Test 2 ] Total: 0.3767 | BPP: 0.1540 | PSNR: 28.8954 | MS-SSIM: 0.9326 | Aux: 190
+[ Test 3 ] Total: 0.4743 | BPP: 0.2047 | PSNR: 29.9345 | MS-SSIM: 0.9468 | Aux: 190
+[ Test 4 ] Total: 0.5933 | BPP: 0.2712 | PSNR: 31.0219 | MS-SSIM: 0.9587 | Aux: 190
+[ Test 5 ] Total: 0.7354 | BPP: 0.3559 | PSNR: 32.1639 | MS-SSIM: 0.9682 | Aux: 190
+[ Test 6 ] Total: 0.9028 | BPP: 0.4582 | PSNR: 33.3472 | MS-SSIM: 0.9757 | Aux: 190
+[ Test 7 ] Total: 1.1018 | BPP: 0.5831 | PSNR: 34.5559 | MS-SSIM: 0.9815 | Aux: 190
+[ Test 8 ] Total: 1.3405 | BPP: 0.7176 | PSNR: 35.6580 | MS-SSIM: 0.9856 | Aux: 190
+[ Test 9 ] Total: 1.6322 | BPP: 0.8705 | PSNR: 36.7033 | MS-SSIM: 0.9888 | Aux: 190
+[ Test10 ] Total: 2.0011 | BPP: 1.0260 | PSNR: 37.5694 | MS-SSIM: 0.9909 | Aux: 190
+[ Test ] Total mean: 0.8805
+epoch: 1980225 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980226 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980227 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980228 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980229 of 2000000
+used batches: 100 skipped batches: 0
+[1980230] Total: 0.9378 | BPP: 0.5237 | MSE: 0.000006 | Aux: 177
+epoch: 1980230 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980231 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980232 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980233 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980234 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980235 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980236 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980237 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980238 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980239 of 2000000
+used batches: 100 skipped batches: 0
+[1980240] Total: 0.6632 | BPP: 0.3976 | MSE: 0.000004 | Aux: 182
+epoch: 1980240 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980241 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980242 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980243 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980244 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980245 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980246 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980247 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980248 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980249 of 2000000
+used batches: 100 skipped batches: 0
+[1980250] Total: 0.7425 | BPP: 0.4344 | MSE: 0.000005 | Aux: 184
+[ Test-1 ] Total: 0.5083 | BPP: 0.2354 | PSNR: 29.5284 | MS-SSIM: 0.9363 | Aux: 190
+[ Test 0 ] Total: 0.2313 | BPP: 0.0885 | PSNR: 27.0946 | MS-SSIM: 0.8975 | Aux: 190
+[ Test 1 ] Total: 0.2964 | BPP: 0.1167 | PSNR: 27.9578 | MS-SSIM: 0.9162 | Aux: 190
+[ Test 2 ] Total: 0.3768 | BPP: 0.1541 | PSNR: 28.8973 | MS-SSIM: 0.9326 | Aux: 190
+[ Test 3 ] Total: 0.4745 | BPP: 0.2049 | PSNR: 29.9343 | MS-SSIM: 0.9468 | Aux: 190
+[ Test 4 ] Total: 0.5934 | BPP: 0.2712 | PSNR: 31.0220 | MS-SSIM: 0.9587 | Aux: 190
+[ Test 5 ] Total: 0.7355 | BPP: 0.3558 | PSNR: 32.1608 | MS-SSIM: 0.9682 | Aux: 190
+[ Test 6 ] Total: 0.9029 | BPP: 0.4579 | PSNR: 33.3440 | MS-SSIM: 0.9757 | Aux: 190
+[ Test 7 ] Total: 1.1020 | BPP: 0.5827 | PSNR: 34.5507 | MS-SSIM: 0.9815 | Aux: 190
+[ Test 8 ] Total: 1.3407 | BPP: 0.7169 | PSNR: 35.6516 | MS-SSIM: 0.9856 | Aux: 190
+[ Test 9 ] Total: 1.6323 | BPP: 0.8697 | PSNR: 36.6985 | MS-SSIM: 0.9888 | Aux: 190
+[ Test10 ] Total: 2.0013 | BPP: 1.0251 | PSNR: 37.5643 | MS-SSIM: 0.9909 | Aux: 190
+[ Test ] Total mean: 0.8807
+epoch: 1980250 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980251 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980252 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980253 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980254 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980255 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980256 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980257 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980258 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980259 of 2000000
+used batches: 100 skipped batches: 0
+[1980260] Total: 0.7425 | BPP: 0.4537 | MSE: 0.000004 | Aux: 185
+epoch: 1980260 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980261 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980262 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980263 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980264 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980265 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980266 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980267 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980268 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980269 of 2000000
+used batches: 100 skipped batches: 0
+[1980270] Total: 0.9476 | BPP: 0.5430 | MSE: 0.000006 | Aux: 180
+epoch: 1980270 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980271 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980272 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980273 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980274 of 2000000
+used batches: 100 skipped batches: 0
+[ Test-1 ] Total: 0.5084 | BPP: 0.2354 | PSNR: 29.5286 | MS-SSIM: 0.9362 | Aux: 187
+[ Test 0 ] Total: 0.2311 | BPP: 0.0884 | PSNR: 27.0939 | MS-SSIM: 0.8974 | Aux: 187
+[ Test 1 ] Total: 0.2961 | BPP: 0.1166 | PSNR: 27.9669 | MS-SSIM: 0.9162 | Aux: 187
+[ Test 2 ] Total: 0.3766 | BPP: 0.1540 | PSNR: 28.8984 | MS-SSIM: 0.9326 | Aux: 187
+[ Test 3 ] Total: 0.4744 | BPP: 0.2048 | PSNR: 29.9344 | MS-SSIM: 0.9468 | Aux: 187
+[ Test 4 ] Total: 0.5933 | BPP: 0.2712 | PSNR: 31.0225 | MS-SSIM: 0.9587 | Aux: 187
+[ Test 5 ] Total: 0.7355 | BPP: 0.3558 | PSNR: 32.1602 | MS-SSIM: 0.9682 | Aux: 187
+[ Test 6 ] Total: 0.9028 | BPP: 0.4581 | PSNR: 33.3470 | MS-SSIM: 0.9757 | Aux: 187
+[ Test 7 ] Total: 1.1018 | BPP: 0.5829 | PSNR: 34.5536 | MS-SSIM: 0.9815 | Aux: 187
+[ Test 8 ] Total: 1.3405 | BPP: 0.7172 | PSNR: 35.6546 | MS-SSIM: 0.9856 | Aux: 187
+[ Test 9 ] Total: 1.6322 | BPP: 0.8698 | PSNR: 36.7002 | MS-SSIM: 0.9888 | Aux: 187
+[ Test10 ] Total: 2.0013 | BPP: 1.0254 | PSNR: 37.5656 | MS-SSIM: 0.9909 | Aux: 187
+[ Test ] Total mean: 0.8805
+epoch: 1980275 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980276 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980277 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980278 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980279 of 2000000
+used batches: 100 skipped batches: 0
+[1980280] Total: 0.7612 | BPP: 0.4455 | MSE: 0.000005 | Aux: 180
+epoch: 1980280 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980281 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980282 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980283 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980284 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980285 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980286 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980287 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980288 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980289 of 2000000
+used batches: 100 skipped batches: 0
+[1980290] Total: 0.8849 | BPP: 0.4860 | MSE: 0.000006 | Aux: 182
+epoch: 1980290 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980291 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980292 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980293 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980294 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980295 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980296 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980297 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980298 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980299 of 2000000
+used batches: 100 skipped batches: 0
+[1980300] Total: 0.7270 | BPP: 0.4329 | MSE: 0.000005 | Aux: 183
+[ Test-1 ] Total: 0.5083 | BPP: 0.2354 | PSNR: 29.5276 | MS-SSIM: 0.9362 | Aux: 174
+[ Test 0 ] Total: 0.2313 | BPP: 0.0884 | PSNR: 27.0913 | MS-SSIM: 0.8974 | Aux: 174
+[ Test 1 ] Total: 0.2963 | BPP: 0.1167 | PSNR: 27.9627 | MS-SSIM: 0.9162 | Aux: 174
+[ Test 2 ] Total: 0.3767 | BPP: 0.1541 | PSNR: 28.8993 | MS-SSIM: 0.9326 | Aux: 174
+[ Test 3 ] Total: 0.4745 | BPP: 0.2048 | PSNR: 29.9348 | MS-SSIM: 0.9468 | Aux: 174
+[ Test 4 ] Total: 0.5932 | BPP: 0.2711 | PSNR: 31.0229 | MS-SSIM: 0.9587 | Aux: 174
+[ Test 5 ] Total: 0.7356 | BPP: 0.3559 | PSNR: 32.1614 | MS-SSIM: 0.9681 | Aux: 174
+[ Test 6 ] Total: 0.9027 | BPP: 0.4581 | PSNR: 33.3487 | MS-SSIM: 0.9757 | Aux: 174
+[ Test 7 ] Total: 1.1018 | BPP: 0.5829 | PSNR: 34.5544 | MS-SSIM: 0.9815 | Aux: 174
+[ Test 8 ] Total: 1.3405 | BPP: 0.7173 | PSNR: 35.6550 | MS-SSIM: 0.9856 | Aux: 174
+[ Test 9 ] Total: 1.6321 | BPP: 0.8700 | PSNR: 36.7012 | MS-SSIM: 0.9888 | Aux: 174
+[ Test10 ] Total: 2.0010 | BPP: 1.0255 | PSNR: 37.5678 | MS-SSIM: 0.9909 | Aux: 174
+[ Test ] Total mean: 0.8805
+[lr scheduling] 1.0000000000000002e-07 -> 1.0000000000000004e-08
+epoch: 1980300 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980301 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980302 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980303 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980304 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980305 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980306 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980307 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980308 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980309 of 2000000
+used batches: 100 skipped batches: 0
+[1980310] Total: 0.7993 | BPP: 0.4628 | MSE: 0.000005 | Aux: 187
+epoch: 1980310 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980311 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980312 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980313 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980314 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980315 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980316 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980317 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980318 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980319 of 2000000
+used batches: 100 skipped batches: 0
+[1980320] Total: 0.8473 | BPP: 0.4956 | MSE: 0.000005 | Aux: 186
+epoch: 1980320 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980321 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980322 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980323 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980324 of 2000000
+used batches: 100 skipped batches: 0
+[ Test-1 ] Total: 0.5084 | BPP: 0.2353 | PSNR: 29.5235 | MS-SSIM: 0.9362 | Aux: 178
+[ Test 0 ] Total: 0.2313 | BPP: 0.0884 | PSNR: 27.0912 | MS-SSIM: 0.8974 | Aux: 178
+[ Test 1 ] Total: 0.2963 | BPP: 0.1166 | PSNR: 27.9598 | MS-SSIM: 0.9161 | Aux: 178
+[ Test 2 ] Total: 0.3769 | BPP: 0.1540 | PSNR: 28.8912 | MS-SSIM: 0.9326 | Aux: 178
+[ Test 3 ] Total: 0.4745 | BPP: 0.2047 | PSNR: 29.9332 | MS-SSIM: 0.9468 | Aux: 178
+[ Test 4 ] Total: 0.5932 | BPP: 0.2710 | PSNR: 31.0214 | MS-SSIM: 0.9587 | Aux: 178
+[ Test 5 ] Total: 0.7355 | BPP: 0.3557 | PSNR: 32.1606 | MS-SSIM: 0.9681 | Aux: 178
+[ Test 6 ] Total: 0.9028 | BPP: 0.4580 | PSNR: 33.3469 | MS-SSIM: 0.9757 | Aux: 178
+[ Test 7 ] Total: 1.1016 | BPP: 0.5828 | PSNR: 34.5547 | MS-SSIM: 0.9815 | Aux: 178
+[ Test 8 ] Total: 1.3405 | BPP: 0.7171 | PSNR: 35.6532 | MS-SSIM: 0.9856 | Aux: 178
+[ Test 9 ] Total: 1.6321 | BPP: 0.8699 | PSNR: 36.7012 | MS-SSIM: 0.9888 | Aux: 178
+[ Test10 ] Total: 2.0013 | BPP: 1.0254 | PSNR: 37.5657 | MS-SSIM: 0.9909 | Aux: 178
+[ Test ] Total mean: 0.8806
+epoch: 1980325 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980326 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980327 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980328 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980329 of 2000000
+used batches: 100 skipped batches: 0
+[1980330] Total: 0.6180 | BPP: 0.3804 | MSE: 0.000004 | Aux: 186
+epoch: 1980330 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980331 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980332 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980333 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980334 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980335 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980336 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980337 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980338 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980339 of 2000000
+used batches: 100 skipped batches: 0
+[1980340] Total: 0.9824 | BPP: 0.5219 | MSE: 0.000007 | Aux: 191
+epoch: 1980340 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980341 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980342 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980343 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980344 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980345 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980346 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980347 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980348 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980349 of 2000000
+used batches: 100 skipped batches: 0
+[1980350] Total: 0.9606 | BPP: 0.5408 | MSE: 0.000006 | Aux: 187
+[ Test-1 ] Total: 0.5084 | BPP: 0.2353 | PSNR: 29.5248 | MS-SSIM: 0.9362 | Aux: 187
+[ Test 0 ] Total: 0.2313 | BPP: 0.0884 | PSNR: 27.0912 | MS-SSIM: 0.8974 | Aux: 187
+[ Test 1 ] Total: 0.2965 | BPP: 0.1166 | PSNR: 27.9538 | MS-SSIM: 0.9161 | Aux: 187
+[ Test 2 ] Total: 0.3769 | BPP: 0.1540 | PSNR: 28.8940 | MS-SSIM: 0.9325 | Aux: 187
+[ Test 3 ] Total: 0.4744 | BPP: 0.2047 | PSNR: 29.9348 | MS-SSIM: 0.9468 | Aux: 187
+[ Test 4 ] Total: 0.5933 | BPP: 0.2710 | PSNR: 31.0199 | MS-SSIM: 0.9587 | Aux: 187
+[ Test 5 ] Total: 0.7355 | BPP: 0.3557 | PSNR: 32.1600 | MS-SSIM: 0.9681 | Aux: 187
+[ Test 6 ] Total: 0.9027 | BPP: 0.4579 | PSNR: 33.3456 | MS-SSIM: 0.9757 | Aux: 187
+[ Test 7 ] Total: 1.1017 | BPP: 0.5827 | PSNR: 34.5531 | MS-SSIM: 0.9815 | Aux: 187
+[ Test 8 ] Total: 1.3405 | BPP: 0.7170 | PSNR: 35.6536 | MS-SSIM: 0.9856 | Aux: 187
+[ Test 9 ] Total: 1.6322 | BPP: 0.8698 | PSNR: 36.6998 | MS-SSIM: 0.9888 | Aux: 187
+[ Test10 ] Total: 2.0010 | BPP: 1.0253 | PSNR: 37.5665 | MS-SSIM: 0.9909 | Aux: 187
+[ Test ] Total mean: 0.8805
+epoch: 1980350 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980351 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980352 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980353 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980354 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980355 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980356 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980357 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980358 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980359 of 2000000
+used batches: 100 skipped batches: 0
+[1980360] Total: 0.8530 | BPP: 0.4865 | MSE: 0.000006 | Aux: 184
+epoch: 1980360 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980361 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980362 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980363 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980364 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980365 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980366 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980367 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980368 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980369 of 2000000
+used batches: 100 skipped batches: 0
+[1980370] Total: 0.6916 | BPP: 0.3941 | MSE: 0.000005 | Aux: 183
+epoch: 1980370 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980371 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980372 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980373 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980374 of 2000000
+used batches: 100 skipped batches: 0
+[ Test-1 ] Total: 0.5082 | BPP: 0.2353 | PSNR: 29.5280 | MS-SSIM: 0.9362 | Aux: 190
+[ Test 0 ] Total: 0.2313 | BPP: 0.0885 | PSNR: 27.0928 | MS-SSIM: 0.8974 | Aux: 190
+[ Test 1 ] Total: 0.2962 | BPP: 0.1166 | PSNR: 27.9622 | MS-SSIM: 0.9161 | Aux: 190
+[ Test 2 ] Total: 0.3769 | BPP: 0.1540 | PSNR: 28.8927 | MS-SSIM: 0.9326 | Aux: 190
+[ Test 3 ] Total: 0.4743 | BPP: 0.2048 | PSNR: 29.9354 | MS-SSIM: 0.9468 | Aux: 190
+[ Test 4 ] Total: 0.5933 | BPP: 0.2711 | PSNR: 31.0220 | MS-SSIM: 0.9587 | Aux: 190
+[ Test 5 ] Total: 0.7354 | BPP: 0.3558 | PSNR: 32.1621 | MS-SSIM: 0.9682 | Aux: 190
+[ Test 6 ] Total: 0.9028 | BPP: 0.4581 | PSNR: 33.3472 | MS-SSIM: 0.9757 | Aux: 190
+[ Test 7 ] Total: 1.1017 | BPP: 0.5829 | PSNR: 34.5545 | MS-SSIM: 0.9815 | Aux: 190
+[ Test 8 ] Total: 1.3404 | BPP: 0.7171 | PSNR: 35.6548 | MS-SSIM: 0.9856 | Aux: 190
+[ Test 9 ] Total: 1.6321 | BPP: 0.8699 | PSNR: 36.7005 | MS-SSIM: 0.9888 | Aux: 190
+[ Test10 ] Total: 2.0008 | BPP: 1.0254 | PSNR: 37.5680 | MS-SSIM: 0.9909 | Aux: 190
+[ Test ] Total mean: 0.8805
+Best!
+epoch: 1980375 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980376 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980377 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980378 of 2000000
+used batches: 100 skipped batches: 0
+epoch: 1980379 of 2000000
+used batches: 100 skipped batches: 0
+[1980380] Total: 0.9495 | BPP: 0.5642 | MSE: 0.000006 | Aux: 180
