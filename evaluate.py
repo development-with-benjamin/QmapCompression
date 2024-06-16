@@ -68,6 +68,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Pixelwise variable compression rate')
     parser.add_argument('-d','--dir', help='path to folder containing images', type=str, required=True)
     parser.add_argument('-o', '--out', help='output directory', type=str, required=True)
+    parser.add_argument('-c', "--checkpoint", help="path to checkpoint", type=str)
     args = parser.parse_args(sys.argv[1:])
     
     if not os.path.isdir(args.dir) or not os.path.isdir(args.out):
@@ -75,7 +76,7 @@ if __name__ == '__main__':
         sys.exit(-1)
     
     compression_dir = args.out + '/comp/'
-    reconstruct_dir = args.out + '/reconstruced_images/'
+    reconstruct_dir = args.out + '/decomp/'
 
     imagepaths = []
     extensions = ['png', 'PNG', 'tiff', 'TIFF']
@@ -86,7 +87,7 @@ if __name__ == '__main__':
     tmp_file = '/tmp/compression.csv'
     imagepaths_to_csv(imagepaths, csv_path=tmp_file)
 
-    checkpoint_path = "results/pretrained_dist/snapshots/2M_itrs.pt"
+    checkpoint_path = args.checkpoint if args.checkpoint else "results/pretrained_dist/snapshots/2M_itrs.pt"
     device = device = 'cuda' if torch.cuda.is_available() else 'cpu'
     model = SpatiallyAdaptiveCompression()
     _, model = load_checkpoint(path=checkpoint_path, model=model, device=device)
