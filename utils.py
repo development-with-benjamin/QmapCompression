@@ -151,11 +151,11 @@ def load_checkpoint(path, model, device, optimizer=None, aux_optimizer=None, sca
     print(f'Loaded from {itr} iterations')
     model.load_state_dict(snapshot['model'])
     if not only_net:
-        if 'optimizer' in snapshot:
+        if 'optimizer' in snapshot and optimizer:
             optimizer.load_state_dict(snapshot['optimizer'])
-        if 'aux_optimizer' in snapshot:
+        if 'aux_optimizer' in snapshot and aux_optimizer:
             aux_optimizer.load_state_dict(snapshot['aux_optimizer'])
-        if scaler is not None and 'scaler' in snapshot:
+        if 'scaler' in snapshot and scaler:
             scaler.load_state_dict(snapshot['scaler'])
 
     # del snapshot

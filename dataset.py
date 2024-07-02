@@ -12,6 +12,8 @@ from torchvision import transforms
 from torchvision.transforms.functional import hflip, to_tensor
 from torch.distributions.multivariate_normal import MultivariateNormal
 
+from utils import pad
+
 
 class QualityMapDataset(Dataset):
     def __init__(self, path, cropsize=256, mode='train', level_range=(0, 100), level=0, p=0.2):
@@ -76,7 +78,6 @@ class QualityMapDataset(Dataset):
         if random.random() < 0.5 and self.mode == 'train':
             img = hflip(img)
             segmap = hflip(segmap)
-
         # filter segmap to remove some artifacts
         segmap = segmap.filter(ImageFilter.MedianFilter(7))
 
@@ -151,7 +152,6 @@ class QualityMapDataset(Dataset):
         img = to_tensor(img)
         qmap = torch.FloatTensor(qmap).unsqueeze(dim=0)
         qmap *= 1 / self.level_range[1]  # 0~100 -> 0~1
-
         return img, qmap
 
 

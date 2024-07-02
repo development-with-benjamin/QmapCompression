@@ -98,9 +98,9 @@ if __name__ == '__main__':
     model.eval().update()
     device = next(model.parameters()).device
 
-    datafile = 'data.csv'
+    datafile = 'veindata_again.csv'
     pd.DataFrame(columns=['image_path', 'compressed_path', 'reconsturcted_path', 'bpp', 'psnr', 'compression_level']).to_csv(datafile)
-    crompression_levels = list(range(0, 101, 5)) + [-100]
+    crompression_levels = list(range(0, 6, 2))# + [-100]
     for level in crompression_levels:
         _compression_dir = compression_dir + f'level+{str(level).zfill(3)}/' if level != -100 else compression_dir + 'level-100/'
         _reconstruct_dir = reconstruct_dir + f'level+{str(level).zfill(3)}/' if level != -100 else reconstruct_dir + 'level-100/'
@@ -112,5 +112,5 @@ if __name__ == '__main__':
         pd.DataFrame(data).to_csv(datafile, mode='a', header=False)
 
     os.remove(tmp_file)
-    with open('duration.txt', mode='w') as file:
-        file.write(f"Last execution took {time.time() - start} seconds.")
+    with open('duration.txt', mode='a') as file:
+        file.write(f"Last execution took {time.time() - start} seconds.\n")

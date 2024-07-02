@@ -10,7 +10,7 @@ import torch.optim as optim
 
 from models.models import SpatiallyAdaptiveCompression
 from dataset import get_dataloader
-from utils import init, Logger, load_checkpoint, save_checkpoint, AverageMeter
+from utils import init, Logger, load_checkpoint, save_checkpoint, AverageMeter, pad
 from losses.losses import Metrics, PixelwiseRateDistortionLoss
 
 
@@ -59,6 +59,8 @@ def test(logger, test_dataloaders, model, criterion, metric):
             for x, qmap in test_dataloader:
                 x = x.to(device)
                 qmap = qmap.to(device)
+                x = pad(x)
+                qmap = pad(qmap)
                 lmbdamap = quality2lambda(qmap)
                 out_net = model(x, qmap)
                 out_net['x_hat'].clamp_(0, 1)
@@ -142,8 +144,11 @@ def train(args, config, base_dir, snapshot_dir, output_dir, log_dir):
                 aux_optimizer.step()  # update quantiles of entropy bottleneck modules
 
         # logging
-        print("epoch:", logger.itr, "of", config["max_itr"])
-        print("used batches:", used_batches, "skipped batches:", skipped_batches)
+        logging_str = f"{datetime.now()} epoch: {logger.itr} of {config['max_itr']}\nused batches: {used_batches}, skipped_batches: {skipped_batches}\n"
+        print(logging_str)
+        with open("training.log", mode='a') as filehandler:
+            filehandler.write(logging_str)
+
         logger.update(out_criterion, aux_loss)
         if logger.itr % config['log_itr'] == 0:
             logger.print()
